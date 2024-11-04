@@ -23,11 +23,29 @@ namespace mastermind_Mahtar_Youssef
         public MainWindow()
         {
             InitializeComponent();
+            RandomKleuren();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void RandomKleuren()
+        {
+            Random random = new Random();
+            List<string> kleuren = new List<string> { "rood", "geel", "oranje", "wit", "groen", "blauw" };
+
+            List<string> code = new List<string>();
+            for (int i = 0; i < 4; i++)
+            {
+                string randomKleur = kleuren[random.Next(kleuren.Count)];
+                code.Add(randomKleur);
+            }
+
+            string codeString = string.Join(", ", code);
+
+            this.Title = $"Mastermind ({codeString})"; 
         }
     }
 }
