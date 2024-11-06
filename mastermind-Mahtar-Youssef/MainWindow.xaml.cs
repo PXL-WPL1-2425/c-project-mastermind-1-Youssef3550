@@ -46,6 +46,14 @@ namespace mastermind_Mahtar_Youssef
             string codeString = string.Join(", ", code);
 
             this.Title = $"Mastermind ({codeString})"; 
+
+            for (int i = 0; i < kleuren.Count; i++)
+            {
+                ComboBox1.Items.Add(kleuren[i]);
+                ComboBox2.Items.Add(kleuren[i]);
+                ComboBox3.Items.Add(kleuren[i]);
+                ComboBox4.Items.Add(kleuren[i]);
+            }
         }
     }
 }

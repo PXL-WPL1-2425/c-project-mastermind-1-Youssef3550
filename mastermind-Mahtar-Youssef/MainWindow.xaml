@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:mastermind_Mahtar_Youssef"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="805">
     <Grid>
         <ComboBox x:Name="ComboBox1" HorizontalAlignment="Left" Height="25" Margin="10,208,0,0" VerticalAlignment="Top" Width="186"/>
-        <ComboBox x:Name="ComboBox2" HorizontalAlignment="Left" Height="25" Margin="214,211,0,0" VerticalAlignment="Top" Width="186"/>
-        <ComboBox x:Name="ComboBox3" HorizontalAlignment="Left" Height="25" Margin="417,211,0,0" VerticalAlignment="Top" Width="186"/>
-        <ComboBox x:Name="ComboBox4" HorizontalAlignment="Left" Height="25" Margin="608,211,0,0" VerticalAlignment="Top" Width="186"/>
+        <ComboBox x:Name="ComboBox2" HorizontalAlignment="Left" Height="25" Margin="214,208,0,0" VerticalAlignment="Top" Width="186"/>
+        <ComboBox x:Name="ComboBox3" HorizontalAlignment="Left" Height="25" Margin="408,208,0,0" VerticalAlignment="Top" Width="186"/>
+        <ComboBox x:Name="ComboBox4" HorizontalAlignment="Left" Height="25" Margin="604,208,0,0" VerticalAlignment="Top" Width="186"/>
         <Button Content="Check Code" HorizontalAlignment="Left" Height="33" Margin="307,290,0,0" VerticalAlignment="Top" Width="203" Click="Button_Click"/>
 
 
