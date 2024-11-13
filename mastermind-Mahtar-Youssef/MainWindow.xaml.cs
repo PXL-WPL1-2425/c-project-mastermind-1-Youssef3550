@@ -18,15 +18,81 @@ namespace mastermind_Mahtar_Youssef
 {
     public partial class MainWindow : Window
     {
+        private List<string> code;
         public MainWindow()
         {
             InitializeComponent();
             RandomKleuren();
+            LabelBorder();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            string checkKleur1 = ComboBox1.SelectedItem?.ToString() ?? "";
+            string checkKleur2 = ComboBox2.SelectedItem?.ToString() ?? "";
+            string checkKleur3 = ComboBox3.SelectedItem?.ToString() ?? "";
+            string checkKleur4 = ComboBox4.SelectedItem?.ToString() ?? "";
+
+
+            if (checkKleur1 == code[0])
+            {
+                Label1.BorderBrush = Brushes.DarkRed;
+
+            }
+            else if (checkKleur1 == code[1] || checkKleur1 == code[2] || checkKleur1 == code[3])
+            {
+                Label1.BorderBrush = Brushes.Wheat;
+            }
+            else
+            {
+                Label1.BorderBrush = Brushes.Transparent;
+            }
+            if (checkKleur2 == code[1])
+            {
+                Label2.BorderBrush = Brushes.DarkRed;
+
+            }
+            else if (checkKleur2 == code[0] || checkKleur2 == code[2] || checkKleur2 == code[3])
+            {
+                Label2.BorderBrush = Brushes.Wheat;
+            }
+            else
+            {
+                Label2.BorderBrush = Brushes.Transparent;
+            }
+            if (checkKleur3 == code[2])
+            {
+                Label3.BorderBrush = Brushes.DarkRed;
+
+            }
+            else if (checkKleur3 == code[0] || checkKleur3 == code[1] || checkKleur3 == code[3])
+            {
+                Label3.BorderBrush = Brushes.Wheat;
+            }
+            else
+            {
+                Label3.BorderBrush = Brushes.Transparent;
+            }
+            if (checkKleur4 == code[3])
+            {
+                Label4.BorderBrush = Brushes.DarkRed;
+
+            }
+            else if (checkKleur4 == code[0] || checkKleur4 == code[1] || checkKleur4 == code[2])
+            {
+                Label4.BorderBrush = Brushes.Wheat;
+            }
+            else
+            {
+                Label4.BorderBrush = Brushes.Transparent;
+            }
+
+            if (Label1.BorderBrush == Brushes.DarkRed && Label2.BorderBrush == Brushes.DarkRed &&
+                Label3.BorderBrush == Brushes.DarkRed && Label4.BorderBrush == Brushes.DarkRed)
+            {
+                MessageBox.Show("JE HEBT ALLE KLEUREN JUIST GERADEN!", "Gewonnen!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
         }
 
         private void RandomKleuren()
@@ -34,7 +100,7 @@ namespace mastermind_Mahtar_Youssef
             Random random = new Random();
             List<string> kleuren = new List<string> { "rood", "geel", "oranje", "wit", "groen", "blauw" };
 
-            List<string> code = new List<string>();
+            code = new List<string>();
             for (int i = 0; i < 4; i++)
             {
                 string randomKleur = kleuren[random.Next(kleuren.Count)];
@@ -59,7 +125,7 @@ namespace mastermind_Mahtar_Youssef
             ComboBox comboBox = sender as ComboBox;
 
             
-            string kleurCode = GeklozenKleuren(comboBox);
+            string kleurCode = GekozenKleuren(comboBox);
             SolidColorBrush colorBrush = (SolidColorBrush)new BrushConverter().ConvertFromString(kleurCode);
 
            
@@ -81,7 +147,7 @@ namespace mastermind_Mahtar_Youssef
             }
         }
 
-        private string GeklozenKleuren(ComboBox comboBox)
+        private string GekozenKleuren(ComboBox comboBox)
         {
                 if (comboBox != null && comboBox.SelectedItem is string gekozenKleur)
             {
@@ -105,7 +171,15 @@ namespace mastermind_Mahtar_Youssef
                 }
             }
 
-            return "#D3D3D3"; // Kleurcode "LIGHTGRAY". Is hetzelfde als achtergrond voor de kleur wit te kunnen testen.
+            return "#D3D3D3"; // Kleurcode "LIGHTGRAY". Is hetzelfde als achtergrond voor de kleur wit te kunnen laten zien.
+        }
+
+        private void LabelBorder()
+        {
+            Label1.BorderThickness = new Thickness(5);
+            Label2.BorderThickness = new Thickness(5);
+            Label3.BorderThickness = new Thickness(5);
+            Label4.BorderThickness = new Thickness(5);
         }
     }
 }
